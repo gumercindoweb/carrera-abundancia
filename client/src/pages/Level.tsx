@@ -1,5 +1,5 @@
 /**
- * Level: Detailed view of a specific level with modules, exercises, resources
+ * Level: Detailed view of a specific level - Gumercindo Jiménez Branding
  */
 import Layout from "@/components/Layout";
 import { useProgress } from "@/contexts/ProgressContext";
@@ -27,8 +27,8 @@ export default function Level() {
   if (!level) {
     return (
       <Layout>
-        <div className="text-center py-20">
-          <p className="text-muted-foreground font-body">Nivel no encontrado</p>
+        <div className="text-center py-20 font-body">
+          <p className="text-gj-mint-light">Nivel no encontrado</p>
         </div>
       </Layout>
     );
@@ -36,7 +36,7 @@ export default function Level() {
 
   return (
     <Layout>
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-5xl mx-auto font-body">
         {/* Level header */}
         <motion.div
           className="mb-10"
@@ -45,52 +45,52 @@ export default function Level() {
           transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
         >
           <div className="flex items-center gap-2 mb-2">
-            <span className="text-xs uppercase tracking-wider font-body font-semibold text-primary bg-primary/10 px-2 py-0.5 rounded">
+            <span className="text-[10px] uppercase tracking-widest font-bold text-white bg-gj-teal px-2 py-0.5">
               Nivel {level.id}
             </span>
-            <span className="text-xs text-muted-foreground font-body">{level.subtitle}</span>
+            <span className="text-xs text-gj-mint/60 uppercase tracking-widest font-medium">{level.subtitle}</span>
           </div>
-          <h1 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4">
+          <h1 className="font-display text-3xl sm:text-5xl font-bold text-white mb-4 uppercase tracking-tight">
             {level.title}
           </h1>
-          <p className="font-body text-lg text-muted-foreground leading-relaxed max-w-3xl">
+          <p className="font-body text-lg text-gj-mint-light leading-relaxed max-w-3xl">
             {level.description}
           </p>
         </motion.div>
 
         {/* Referent quote */}
         <motion.div
-          className="glass-card rounded-xl p-6 mb-10 border-l-4 border-l-primary"
+          className="gj-card p-6 mb-10 border-l-4 border-l-gj-teal"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1, ease: [0.23, 1, 0.32, 1] }}
         >
           <div className="flex items-start gap-3">
-            <Quote className="w-5 h-5 text-primary shrink-0 mt-1" />
+            <Quote className="w-5 h-5 text-gj-teal shrink-0 mt-1" />
             <div>
-              <p className="font-body text-foreground italic leading-relaxed mb-2">
+              <p className="font-body text-white italic leading-relaxed mb-2">
                 "{level.referentQuote}"
               </p>
-              <p className="font-body text-sm text-primary font-semibold">— {level.referent}</p>
+              <p className="font-body text-sm text-gj-teal font-bold uppercase tracking-widest">— {level.referent}</p>
             </div>
           </div>
         </motion.div>
 
         {/* Weekly routine */}
         <motion.div
-          className="glass-card rounded-xl p-6 mb-10"
+          className="gj-card p-6 mb-10"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15, ease: [0.23, 1, 0.32, 1] }}
         >
-          <h3 className="font-display text-lg font-semibold text-foreground mb-4">Rutina Semanal</h3>
-          <div className="grid sm:grid-cols-2 gap-3">
+          <h3 className="font-display text-lg font-bold text-white mb-4 uppercase tracking-widest">Rutina Semanal</h3>
+          <div className="grid sm:grid-cols-2 gap-4">
             {level.weeklyRoutine.map((item, i) => (
-              <div key={i} className="flex items-start gap-2">
-                <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
-                  <span className="text-[10px] font-mono text-primary font-bold">{i + 1}</span>
+              <div key={i} className="flex items-start gap-3">
+                <div className="w-6 h-6 bg-gj-teal/10 flex items-center justify-center shrink-0 mt-0.5">
+                  <span className="text-xs font-mono text-gj-teal font-bold">{i + 1}</span>
                 </div>
-                <p className="font-body text-sm text-muted-foreground">{item}</p>
+                <p className="font-body text-sm text-gj-mint-light/80">{item}</p>
               </div>
             ))}
           </div>
@@ -98,7 +98,7 @@ export default function Level() {
 
         {/* Modules */}
         <div className="space-y-4">
-          <h2 className="font-display text-2xl font-bold text-foreground mb-6">Módulos</h2>
+          <h2 className="font-display text-2xl font-bold text-white mb-6 uppercase tracking-widest">Módulos</h2>
           {level.modules.map((module, i) => {
             const moduleProgress = getModuleProgress(module.id);
             const isCompleted = moduleProgress?.completed || false;
@@ -107,8 +107,8 @@ export default function Level() {
             return (
               <motion.div
                 key={module.id}
-                className={`glass-card rounded-xl overflow-hidden transition-all duration-300 ${
-                  isCompleted ? "border-emerald-dark/30" : ""
+                className={`gj-card p-0 overflow-hidden transition-all duration-300 ${
+                  isCompleted ? "border-gj-teal/50" : "border-gj-teal/10"
                 }`}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -117,49 +117,49 @@ export default function Level() {
                 {/* Module header */}
                 <button
                   onClick={() => setExpandedModule(isExpanded ? null : module.id)}
-                  className="w-full p-5 flex items-start gap-4 text-left hover:bg-secondary/30 transition-colors"
+                  className="w-full p-5 flex items-start gap-4 text-left hover:bg-gj-teal/5 transition-colors"
                 >
-                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${
-                    isCompleted ? "bg-emerald-dark/20" : "bg-secondary"
+                  <div className={`w-10 h-10 flex items-center justify-center shrink-0 ${
+                    isCompleted ? "bg-gj-teal" : "bg-gj-petrol"
                   }`}>
                     {isCompleted ? (
-                      <CheckCircle2 className="w-4 h-4 text-emerald-dark" style={{ color: "oklch(0.55 0.12 155)" }} />
+                      <CheckCircle2 className="w-5 h-5 text-white" />
                     ) : (
-                      <span className="font-mono text-xs text-muted-foreground">{i + 1}</span>
+                      <span className="font-mono text-sm text-gj-teal font-bold">{i + 1}</span>
                     )}
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-display text-lg font-semibold text-foreground mb-1">
+                    <h3 className="font-display text-lg font-bold text-white mb-1 uppercase tracking-tight">
                       {module.title}
                     </h3>
-                    <p className="font-body text-sm text-muted-foreground">{module.description}</p>
+                    <p className="font-body text-sm text-gj-mint-light/60">{module.description}</p>
                   </div>
                 </button>
 
                 {/* Expanded content */}
                 {isExpanded && (
                   <motion.div
-                    className="px-5 pb-5 border-t border-border/50"
+                    className="px-5 pb-5 border-t border-gj-teal/10"
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: "auto" }}
                     transition={{ duration: 0.3 }}
                   >
                     {/* Key question */}
-                    <div className="mt-5 mb-6 p-4 bg-primary/5 rounded-lg border border-primary/10">
-                      <p className="text-xs uppercase tracking-wider font-body text-primary mb-1">Pregunta clave</p>
-                      <p className="font-display text-foreground italic">{module.keyQuestion}</p>
+                    <div className="mt-5 mb-6 p-4 bg-gj-teal/5 border-l-2 border-l-gj-teal">
+                      <p className="text-[10px] uppercase tracking-[0.2em] font-bold text-gj-teal mb-1">Pregunta clave</p>
+                      <p className="font-display text-white italic">{module.keyQuestion}</p>
                     </div>
 
                     {/* Exercises */}
                     <div className="mb-6">
-                      <h4 className="font-body text-sm font-semibold text-foreground uppercase tracking-wider mb-3">
+                      <h4 className="font-body text-[10px] font-bold text-gj-mint/40 uppercase tracking-[0.2em] mb-3">
                         Ejercicios
                       </h4>
-                      <div className="space-y-2">
+                      <div className="space-y-3">
                         {module.exercises.map((ex, j) => (
-                          <div key={j} className="flex items-start gap-2">
-                            <Circle className="w-3 h-3 text-primary shrink-0 mt-1.5" />
-                            <p className="font-body text-sm text-muted-foreground">{ex}</p>
+                          <div key={j} className="flex items-start gap-3">
+                            <Circle className="w-2 h-2 text-gj-teal shrink-0 mt-1.5" />
+                            <p className="font-body text-sm text-gj-mint-light">{ex}</p>
                           </div>
                         ))}
                       </div>
@@ -167,18 +167,18 @@ export default function Level() {
 
                     {/* Resources */}
                     <div className="mb-6">
-                      <h4 className="font-body text-sm font-semibold text-foreground uppercase tracking-wider mb-3">
-                        Recursos
+                      <h4 className="font-body text-[10px] font-bold text-gj-mint/40 uppercase tracking-[0.2em] mb-3">
+                        Recursos de estudio
                       </h4>
-                      <div className="space-y-3">
+                      <div className="grid sm:grid-cols-2 gap-3">
                         {module.resources.map((res, j) => {
                           const ResIcon = resourceIcons[res.type];
                           return (
-                            <div key={j} className="flex items-start gap-3 p-3 rounded-lg bg-secondary/30 hover:bg-secondary/50 transition-colors">
-                              <ResIcon className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                            <div key={j} className="flex items-start gap-3 p-3 bg-gj-petrol-dark hover:bg-gj-teal/10 transition-colors border border-gj-teal/5">
+                              <ResIcon className="w-4 h-4 text-gj-teal shrink-0 mt-0.5" />
                               <div className="flex-1 min-w-0">
                                 <div className="flex items-center gap-2">
-                                  <p className="font-body text-sm font-medium text-foreground truncate">
+                                  <p className="font-body text-sm font-bold text-white truncate uppercase tracking-tight">
                                     {res.title}
                                   </p>
                                   {res.url && (
@@ -188,18 +188,14 @@ export default function Level() {
                                       rel="noopener noreferrer"
                                       className="shrink-0"
                                     >
-                                      <ExternalLink className="w-3 h-3 text-primary" />
+                                      <ExternalLink className="w-3 h-3 text-gj-teal hover:text-gj-teal-hover" />
                                     </a>
                                   )}
                                 </div>
                                 {res.author && (
-                                  <p className="font-body text-xs text-primary">{res.author}</p>
+                                  <p className="font-body text-[10px] text-gj-teal font-medium uppercase tracking-widest">{res.author}</p>
                                 )}
-                                <p className="font-body text-xs text-muted-foreground mt-0.5">{res.description}</p>
                               </div>
-                              <span className="text-[9px] uppercase tracking-wider font-body text-muted-foreground bg-secondary px-1.5 py-0.5 rounded shrink-0">
-                                {res.type}
-                              </span>
                             </div>
                           );
                         })}
@@ -210,16 +206,16 @@ export default function Level() {
                     {!isCompleted && (
                       <button
                         onClick={() => completeModule(module.id)}
-                        className="w-full py-3 bg-primary/10 hover:bg-primary/20 border border-primary/20 rounded-lg font-body text-sm font-semibold text-primary transition-all duration-200 active:scale-[0.98]"
+                        className="gj-btn w-full uppercase tracking-[0.2em]"
                       >
-                        Marcar como completado
+                        Completar módulo
                       </button>
                     )}
                     {isCompleted && (
-                      <div className="flex items-center gap-2 py-3 justify-center">
-                        <CheckCircle2 className="w-4 h-4" style={{ color: "oklch(0.55 0.12 155)" }} />
-                        <span className="font-body text-sm" style={{ color: "oklch(0.55 0.12 155)" }}>
-                          Módulo completado
+                      <div className="flex items-center gap-2 py-3 justify-center border border-gj-teal/30">
+                        <CheckCircle2 className="w-4 h-4 text-gj-teal" />
+                        <span className="font-body text-[10px] font-bold text-gj-teal uppercase tracking-[0.2em]">
+                          Módulo completado con éxito
                         </span>
                       </div>
                     )}

@@ -1,5 +1,5 @@
 /**
- * Exercises: Interactive exercises and self-assessment questions
+ * Exercises: Interactive exercises - Gumercindo Jiménez Branding
  */
 import Layout from "@/components/Layout";
 import { levels, weeklyPlan } from "@/data/curriculum";
@@ -30,57 +30,57 @@ export default function Exercises() {
 
   return (
     <Layout>
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-5xl mx-auto font-body">
         <motion.div
           className="mb-8"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
         >
-          <h1 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-2">
+          <h1 className="font-display text-3xl sm:text-4xl font-bold text-white mb-2 uppercase tracking-tight">
             Ejercicios de Entrenamiento
           </h1>
-          <p className="font-body text-muted-foreground">
+          <p className="font-body text-gj-mint-light">
             Práctica deliberada para construir la identidad de abundancia
           </p>
         </motion.div>
 
         {/* Self-assessment section */}
         <motion.div
-          className="glass-card rounded-xl mb-8 overflow-hidden"
+          className="gj-card p-0 mb-8 overflow-hidden"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1, ease: [0.23, 1, 0.32, 1] }}
         >
           <button
             onClick={() => setShowAssessment(!showAssessment)}
-            className="w-full p-5 flex items-center justify-between hover:bg-secondary/30 transition-colors"
+            className="w-full p-5 flex items-center justify-between hover:bg-gj-teal/5 transition-colors"
           >
             <div className="flex items-center gap-3">
-              <Lightbulb className="w-5 h-5 text-primary" />
-              <h2 className="font-display text-xl font-semibold text-foreground">
+              <Lightbulb className="w-5 h-5 text-gj-teal" />
+              <h2 className="font-display text-xl font-bold text-white uppercase tracking-widest">
                 Autoevaluación: 12 Preguntas de Carácter
               </h2>
             </div>
             {showAssessment ? (
-              <ChevronUp className="w-5 h-5 text-muted-foreground" />
+              <ChevronUp className="w-5 h-5 text-gj-mint/40" />
             ) : (
-              <ChevronDown className="w-5 h-5 text-muted-foreground" />
+              <ChevronDown className="w-5 h-5 text-gj-mint/40" />
             )}
           </button>
           {showAssessment && (
-            <div className="px-5 pb-5 border-t border-border/50">
-              <p className="font-body text-sm text-muted-foreground mt-4 mb-6">
-                Responde estas preguntas con honestidad. No hay respuestas correctas — el objetivo es observar
-                dónde estás hoy y hacia dónde necesitas crecer.
+            <div className="px-5 pb-5 border-t border-gj-teal/10">
+              <p className="font-body text-sm text-gj-mint-light/60 mt-4 mb-6">
+                Respondé estas preguntas con honestidad. No hay respuestas correctas — el objetivo es que observés
+                dónde estás hoy y hacia dónde necesitás crecer.
               </p>
               <div className="grid sm:grid-cols-2 gap-4">
                 {selfAssessment.map((item, i) => (
-                  <div key={i} className="p-4 bg-secondary/30 rounded-lg">
-                    <span className="text-[9px] uppercase tracking-wider font-body text-primary bg-primary/10 px-1.5 py-0.5 rounded mb-2 inline-block">
+                  <div key={i} className="p-4 bg-gj-petrol border border-gj-teal/5">
+                    <span className="text-[9px] uppercase tracking-widest font-bold text-gj-teal bg-gj-teal/10 px-1.5 py-0.5 mb-2 inline-block">
                       {item.category}
                     </span>
-                    <p className="font-body text-sm text-foreground italic">{item.question}</p>
+                    <p className="font-body text-sm text-white italic">{item.question}</p>
                   </div>
                 ))}
               </div>
@@ -96,47 +96,47 @@ export default function Exercises() {
             return (
               <motion.div
                 key={level.id}
-                className="glass-card rounded-xl overflow-hidden"
+                className="gj-card p-0 overflow-hidden"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.15 + levelIdx * 0.05, ease: [0.23, 1, 0.32, 1] }}
               >
                 <button
                   onClick={() => setExpandedLevel(isExpanded ? null : level.id)}
-                  className="w-full p-5 flex items-center justify-between hover:bg-secondary/30 transition-colors"
+                  className="w-full p-5 flex items-center justify-between hover:bg-gj-teal/5 transition-colors"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center">
-                      <Icon className="w-4 h-4 text-primary" />
+                    <div className="w-10 h-10 bg-gj-teal/10 flex items-center justify-center">
+                      <Icon className="w-5 h-5 text-gj-teal" />
                     </div>
                     <div className="text-left">
-                      <h3 className="font-display text-lg font-semibold text-foreground">
+                      <h3 className="font-display text-lg font-bold text-white uppercase tracking-widest">
                         Nivel {level.id}: {level.title}
                       </h3>
-                      <p className="font-body text-xs text-muted-foreground">
+                      <p className="font-body text-[10px] text-gj-mint/40 uppercase tracking-widest">
                         {level.modules.reduce((acc, m) => acc + m.exercises.length, 0)} ejercicios
                       </p>
                     </div>
                   </div>
                   {isExpanded ? (
-                    <ChevronUp className="w-5 h-5 text-muted-foreground" />
+                    <ChevronUp className="w-5 h-5 text-gj-mint/40" />
                   ) : (
-                    <ChevronDown className="w-5 h-5 text-muted-foreground" />
+                    <ChevronDown className="w-5 h-5 text-gj-mint/40" />
                   )}
                 </button>
 
                 {isExpanded && (
-                  <div className="px-5 pb-5 border-t border-border/50 space-y-5">
+                  <div className="px-5 pb-5 border-t border-gj-teal/10 space-y-5">
                     {level.modules.map((module) => (
                       <div key={module.id} className="mt-4">
-                        <h4 className="font-body text-sm font-semibold text-primary mb-3">{module.title}</h4>
+                        <h4 className="font-body text-[10px] font-bold text-gj-teal uppercase tracking-[0.2em] mb-3">{module.title}</h4>
                         <div className="space-y-2">
                           {module.exercises.map((ex, j) => (
-                            <div key={j} className="flex items-start gap-3 p-3 bg-secondary/20 rounded-lg">
-                              <span className="font-mono text-[10px] text-muted-foreground bg-secondary px-1.5 py-0.5 rounded shrink-0 mt-0.5">
+                            <div key={j} className="flex items-start gap-3 p-3 bg-gj-petrol border border-gj-teal/5">
+                              <span className="font-mono text-xs text-gj-teal font-bold shrink-0 mt-0.5">
                                 {j + 1}
                               </span>
-                              <p className="font-body text-sm text-muted-foreground">{ex}</p>
+                              <p className="font-body text-sm text-gj-mint-light">{ex}</p>
                             </div>
                           ))}
                         </div>
@@ -151,23 +151,20 @@ export default function Exercises() {
 
         {/* Weekly plan */}
         <motion.div
-          className="mt-10"
+          className="mt-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4, ease: [0.23, 1, 0.32, 1] }}
         >
-          <h2 className="font-display text-2xl font-bold text-foreground mb-6">Plan de 8 Semanas</h2>
+          <h2 className="font-display text-2xl font-bold text-white mb-6 uppercase tracking-widest">Plan de 8 Semanas</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {weeklyPlan.map((week) => (
-              <div key={week.week} className="glass-card rounded-xl p-4">
+            {weeklyPlan.map((week, idx) => (
+              <div key={idx} className="gj-card p-4 border-gj-teal/10">
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="font-mono text-xs text-primary font-bold">S{week.week}</span>
-                  <span className="text-[9px] uppercase tracking-wider font-body text-muted-foreground bg-secondary px-1.5 py-0.5 rounded">
-                    Nivel {week.level}
-                  </span>
+                  <span className="font-mono text-xs text-gj-teal font-bold">S{idx + 1}</span>
                 </div>
-                <h4 className="font-display text-sm font-semibold text-foreground mb-1">{week.title}</h4>
-                <p className="font-body text-xs text-muted-foreground">{week.focus}</p>
+                <h4 className="font-display text-sm font-bold text-white mb-1 uppercase tracking-tight">{week.title}</h4>
+                <p className="font-body text-xs text-gj-mint-light/60">{week.focus}</p>
               </div>
             ))}
           </div>
