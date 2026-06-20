@@ -108,7 +108,7 @@ export default function Level() {
               <motion.div
                 key={module.id}
                 className={`glass-card rounded-xl overflow-hidden transition-all duration-300 ${
-                  isCompleted ? "border-emerald-dark/30" : ""
+                  isCompleted ? "border-primary/40" : ""
                 }`}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -120,10 +120,10 @@ export default function Level() {
                   className="w-full p-5 flex items-start gap-4 text-left hover:bg-secondary/30 transition-colors"
                 >
                   <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${
-                    isCompleted ? "bg-emerald-dark/20" : "bg-secondary"
+                    isCompleted ? "bg-primary/15" : "bg-secondary"
                   }`}>
                     {isCompleted ? (
-                      <CheckCircle2 className="w-4 h-4 text-emerald-dark" style={{ color: "oklch(0.55 0.12 155)" }} />
+                      <CheckCircle2 className="w-4 h-4" style={{ color: "#1E8A66" }} />
                     ) : (
                       <span className="font-mono text-xs text-muted-foreground">{i + 1}</span>
                     )}
@@ -217,8 +217,8 @@ export default function Level() {
                     )}
                     {isCompleted && (
                       <div className="flex items-center gap-2 py-3 justify-center">
-                        <CheckCircle2 className="w-4 h-4" style={{ color: "oklch(0.55 0.12 155)" }} />
-                        <span className="font-body text-sm" style={{ color: "oklch(0.55 0.12 155)" }}>
+                        <CheckCircle2 className="w-4 h-4" style={{ color: "#1E8A66" }} />
+                        <span className="font-body text-sm font-semibold" style={{ color: "#1E8A66" }}>
                           Módulo completado
                         </span>
                       </div>

@@ -179,13 +179,23 @@ export default function Dashboard() {
               )}
             </div>
 
-            {/* Orbital progress image */}
-            <div className="glass-card rounded-xl overflow-hidden">
+            {/* GJ brand identity card */}
+            <div
+              className="rounded-xl p-6 flex flex-col items-center text-center"
+              style={{ background: "#07211A", border: "1px solid rgba(184,148,85,0.18)" }}
+            >
               <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663184209086/grkStG6TS38pKs5UQaFM6E/level-progress-Rv8RHh7Fdzpo3hkdGLDgFe.webp"
-                alt="Niveles de progreso"
-                className="w-full opacity-80"
+                src="/assets/gj-symbol-gold.png"
+                alt="GJ"
+                className="h-12 w-auto mb-4 opacity-80"
               />
+              <hr className="gj-rule mx-auto mb-4" />
+              <p
+                className="font-display text-sm italic leading-relaxed"
+                style={{ color: "rgba(248,245,238,0.70)" }}
+              >
+                "Forjar la mente antes que el patrimonio."
+              </p>
             </div>
           </motion.div>
         </div>

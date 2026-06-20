@@ -40,52 +40,92 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  --font-display: 'Playfair Display', serif;
-  --font-body: 'Source Sans 3', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
-  --color-amber: oklch(0.72 0.15 75);
-  --color-amber-dim: oklch(0.55 0.12 75);
-  --color-amber-glow: oklch(0.82 0.15 75);
-  --color-emerald-dark: oklch(0.55 0.12 155);
-  --color-obsidian: oklch(0.13 0.01 260);
-  --color-obsidian-surface: oklch(0.18 0.012 260);
-  --color-obsidian-elevated: oklch(0.22 0.014 260);
+
+  /* GJ Brand Fonts */
+  --font-display: 'Cormorant Garamond', 'Times New Roman', serif;
+  --font-body:    'Spectral', Georgia, serif;
+  --font-sans:    'Hanken Grotesk', system-ui, sans-serif;
+  --font-mono:    'Hanken Grotesk', system-ui, sans-serif;
+
+  /* GJ Brand Color Palette — direct Tailwind access */
+  --color-gj-green-950: #07211A;
+  --color-gj-green-900: #0A2E25;
+  --color-gj-green-700: #11503D;
+  --color-gj-green-500: #1E8A66;
+  --color-gj-green-50:  #EAF2EE;
+  --color-gj-gold-700:  #8A6D38;
+  --color-gj-gold-500:  #B89455;
+  --color-gj-gold-400:  #CDAE74;
+  --color-gj-clay-500:  #BE5A53;
+  --color-gj-bone-50:   #F8F5EE;
+  --color-gj-bone-100:  #F1ECE0;
+  --color-gj-sand-200:  #E5DDCC;
+  --color-gj-ink-900:   #15130D;
 }
 
 :root {
   --radius: 0.5rem;
-  --background: oklch(0.13 0.01 260);
-  --foreground: oklch(0.92 0.005 80);
-  --card: oklch(0.18 0.012 260);
-  --card-foreground: oklch(0.92 0.005 80);
-  --popover: oklch(0.18 0.012 260);
-  --popover-foreground: oklch(0.92 0.005 80);
-  --primary: oklch(0.72 0.15 75);
-  --primary-foreground: oklch(0.13 0.01 260);
-  --secondary: oklch(0.22 0.014 260);
-  --secondary-foreground: oklch(0.85 0.005 80);
-  --muted: oklch(0.22 0.014 260);
-  --muted-foreground: oklch(0.65 0.01 260);
-  --accent: oklch(0.22 0.014 260);
-  --accent-foreground: oklch(0.92 0.005 80);
-  --destructive: oklch(0.55 0.2 25);
-  --destructive-foreground: oklch(0.95 0 0);
-  --border: oklch(0.28 0.015 260);
-  --input: oklch(0.25 0.013 260);
-  --ring: oklch(0.72 0.15 75);
-  --chart-1: oklch(0.72 0.15 75);
-  --chart-2: oklch(0.55 0.12 155);
-  --chart-3: oklch(0.6 0.1 260);
-  --chart-4: oklch(0.65 0.12 75);
-  --chart-5: oklch(0.5 0.1 260);
-  --sidebar: oklch(0.11 0.008 260);
-  --sidebar-foreground: oklch(0.92 0.005 80);
-  --sidebar-primary: oklch(0.72 0.15 75);
-  --sidebar-primary-foreground: oklch(0.13 0.01 260);
-  --sidebar-accent: oklch(0.18 0.012 260);
-  --sidebar-accent-foreground: oklch(0.92 0.005 80);
-  --sidebar-border: oklch(0.25 0.013 260);
-  --sidebar-ring: oklch(0.72 0.15 75);
+
+  /* Surfaces */
+  --background:             #F8F5EE;  /* bone-50: papel cálido                */
+  --foreground:             #15130D;  /* ink-900: negro cálido                */
+  --card:                   #FFFFFF;  /* surface-raised: blanco puro          */
+  --card-foreground:        #15130D;
+  --popover:                #FFFFFF;
+  --popover-foreground:     #15130D;
+
+  /* Brand */
+  --primary:                #11503D;  /* green-700: verde autoridad           */
+  --primary-foreground:     #F8F5EE;  /* bone-50: ivory sobre verde           */
+
+  /* Secondary — tint fills */
+  --secondary:              #EAF2EE;  /* green-50: lavado verde suave         */
+  --secondary-foreground:   #0A2E25;  /* green-900: texto oscuro sobre tint   */
+
+  /* Muted */
+  --muted:                  #F1ECE0;  /* bone-100: papel más profundo         */
+  --muted-foreground:       #897F66;  /* earth-500: texto apagado cálido      */
+
+  /* Accent — clay/rose para el único CTA caliente */
+  --accent:                 #BE5A53;  /* clay-500                             */
+  --accent-foreground:      #F8F5EE;
+
+  /* Destructive */
+  --destructive:            #9E3B33;
+  --destructive-foreground: #F8F5EE;
+
+  /* Lines & borders */
+  --border:                 #E5DDCC;  /* sand-200: borde suave cálido         */
+  --input:                  #F1ECE0;
+  --ring:                   color-mix(in srgb, #1E8A66 50%, transparent);
+
+  /* Charts */
+  --chart-1: #11503D;
+  --chart-2: #B89455;
+  --chart-3: #BE5A53;
+  --chart-4: #1E8A66;
+  --chart-5: #CDAE74;
+
+  /* Sidebar — banda oscura verde autoridad */
+  --sidebar:                    #07211A;  /* green-950: más profundo           */
+  --sidebar-foreground:         #F8F5EE;  /* ivory                            */
+  --sidebar-primary:            #B89455;  /* gold-500: activo / highlight      */
+  --sidebar-primary-foreground: #07211A;
+  --sidebar-accent:             #0A2E25;  /* green-900: hover bg              */
+  --sidebar-accent-foreground:  #F8F5EE;
+  --sidebar-border:             rgba(248, 245, 238, 0.10);
+  --sidebar-ring:               #B89455;
+
+  /* GJ extended tokens */
+  --gj-metal:              #B89455;
+  --gj-border-gold:        color-mix(in srgb, #B89455 50%, transparent);
+  --gj-border-on-dark:     rgba(248, 245, 238, 0.12);
+  --gj-surface-inverse:    #0A2E25;
+  --gj-surface-inverse-deep: #07211A;
+  --gj-shadow-warm-sm:     0 2px 6px rgba(33, 31, 23, 0.06);
+  --gj-shadow-warm-md:     0 8px 24px -8px rgba(33, 31, 23, 0.12);
+  --gj-shadow-warm-lg:     0 24px 60px -20px rgba(20, 50, 40, 0.22);
+  --gj-ease-out:           cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 @layer base {
@@ -94,10 +134,19 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: 'Source Sans 3', sans-serif;
+    font-family: 'Spectral', Georgia, serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    line-height: 1.65;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+    letter-spacing: -0.015em;
+    line-height: 1.08;
+  }
+  ::selection {
+    background: #BFD9CD;
+    color: #0A2E25;
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
@@ -120,53 +169,67 @@
     padding-left: 1rem;
     padding-right: 1rem;
   }
-
-  .flex {
-    min-height: 0;
-    min-width: 0;
-  }
-
+  .flex { min-height: 0; min-width: 0; }
   @media (min-width: 640px) {
-    .container {
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
-    }
+    .container { padding-left: 1.5rem; padding-right: 1.5rem; }
   }
-
   @media (min-width: 1024px) {
-    .container {
-      padding-left: 2rem;
-      padding-right: 2rem;
-      max-width: 1400px;
-    }
+    .container { padding-left: 2rem; padding-right: 2rem; max-width: 1400px; }
   }
 
+  /* ---- GJ Paper Card — reemplaza glass-card en todas las páginas ---- */
   .glass-card {
-    background: oklch(0.18 0.012 260 / 80%);
-    backdrop-filter: blur(12px);
-    border: 1px solid oklch(0.28 0.015 260 / 50%);
+    background: #FFFFFF;
+    border: 1px solid #E5DDCC;
+    box-shadow: 0 2px 6px rgba(33, 31, 23, 0.06);
+    transition: box-shadow 220ms var(--gj-ease-out), transform 220ms var(--gj-ease-out);
+  }
+  .glass-card:hover {
+    box-shadow: 0 8px 24px -8px rgba(33, 31, 23, 0.12);
   }
 
-  .amber-glow {
-    box-shadow: 0 0 20px oklch(0.72 0.15 75 / 20%), 0 0 40px oklch(0.72 0.15 75 / 10%);
-  }
-
+  /* ---- Gold progress bar — reemplaza forge-progress ---- */
   .forge-progress {
-    background: linear-gradient(90deg, oklch(0.55 0.12 75), oklch(0.72 0.15 75), oklch(0.82 0.15 75));
-    background-size: 200% 100%;
-    animation: forge-glow 3s ease-in-out infinite;
+    background: linear-gradient(90deg, #8A6D38, #B89455, #CDAE74);
   }
 
-  @keyframes forge-glow {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+  /* ---- Gold glow — reemplaza amber-glow ---- */
+  .amber-glow {
+    box-shadow: 0 4px 20px rgba(184, 148, 85, 0.22), 0 2px 8px rgba(184, 148, 85, 0.10);
   }
 
+  /* ---- Gold text — reemplaza text-gradient-amber ---- */
   .text-gradient-amber {
-    background: linear-gradient(135deg, oklch(0.72 0.15 75), oklch(0.82 0.15 75));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #B89455;
+    -webkit-text-fill-color: #B89455;
+    background: none;
+    background-clip: unset;
+  }
+
+  /* ---- GJ Editorial utilities ---- */
+  .gj-eyebrow {
+    font-family: 'Hanken Grotesk', system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #BE5A53;
+  }
+
+  .gj-rule {
+    display: block;
+    width: 2.5rem;
+    height: 2px;
+    background: #B89455;
+    border: none;
+    margin-bottom: 1.5rem;
+  }
+
+  .gj-card-dark {
+    background: #0A2E25;
+    border: 1px solid rgba(248, 245, 238, 0.10);
+    color: #F8F5EE;
+    box-shadow: 0 2px 6px rgba(10, 46, 37, 0.20);
   }
 }
 
