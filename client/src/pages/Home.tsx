@@ -1,5 +1,5 @@
 /**
- * Home: Landing page - Gumercindo Jiménez Branding
+ * Home: Landing page - Obsidiana Ejecutiva
  * Hero con imagen generada, introducción filosófica, CTA hacia dashboard
  */
 import { Link } from "wouter";
@@ -15,12 +15,17 @@ const levels = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background font-body">
+    <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background gradient instead of external image for brand consistency */}
-        <div className="absolute inset-0 bg-gj-petrol">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-from)_0%,_transparent_70%)] from-gj-teal/20" />
+        {/* Background image */}
+        <div className="absolute inset-0">
+          <img
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663184209086/grkStG6TS38pKs5UQaFM6E/hero-banner-ZqKZBJvDRBDaN5HahzULTZ.webp"
+            alt=""
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background" />
         </div>
 
         {/* Content */}
@@ -31,29 +36,29 @@ export default function Home() {
             transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
           >
             <img
-              src="/assets/logo-gj.webp"
-              alt="Gumercindo Jiménez"
-              className="h-24 w-auto mx-auto mb-8"
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663184209086/grkStG6TS38pKs5UQaFM6E/logo-ca-BQbxhPQwvAPpKBk6jfEkpY.webp"
+              alt="Carrera de Abundancia"
+              className="w-20 h-20 mx-auto mb-8"
             />
           </motion.div>
 
           <motion.h1
-            className="font-display text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight uppercase tracking-tight"
+            className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.23, 1, 0.32, 1] }}
           >
             La abundancia no llega.{" "}
-            <span className="text-gj-teal">Se construye desde adentro.</span>
+            <span className="text-gradient-amber">Se construye desde adentro.</span>
           </motion.h1>
 
           <motion.p
-            className="font-body text-lg sm:text-xl text-gj-mint-light max-w-2xl mx-auto mb-10 leading-relaxed"
+            className="font-body text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.23, 1, 0.32, 1] }}
           >
-            Un plan de formación personal para que desarrolles la mente, la personalidad y las habilidades
+            Un plan de formación personal para desarrollar la mente, la personalidad y las habilidades
             de alguien capaz de sostener una vida de gran abundancia con criterio, serenidad y visión.
           </motion.p>
 
@@ -64,10 +69,10 @@ export default function Home() {
           >
             <Link
               href="/dashboard"
-              className="gj-btn text-lg group"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-body font-semibold rounded-lg hover:opacity-90 transition-all duration-200 active:scale-[0.97] amber-glow"
             >
-              Comenzá el entrenamiento
-              <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+              Comenzar el entrenamiento
+              <ArrowRight className="w-5 h-5" />
             </Link>
           </motion.div>
         </div>
@@ -78,14 +83,14 @@ export default function Home() {
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
         >
-          <div className="w-6 h-10 border-2 border-gj-teal/30 flex justify-center pt-2">
-            <div className="w-1 h-2 bg-gj-teal" />
+          <div className="w-6 h-10 border-2 border-muted-foreground/30 rounded-full flex justify-center pt-2">
+            <div className="w-1 h-2 bg-primary rounded-full" />
           </div>
         </motion.div>
       </section>
 
       {/* Philosophy Section */}
-      <section className="py-24 px-6 bg-gj-petrol-dark">
+      <section className="py-24 px-6">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -93,17 +98,17 @@ export default function Home() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
           >
-            <h2 className="font-display text-3xl sm:text-4xl font-bold text-white mb-8 uppercase">
+            <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-8">
               No se trata de imitar multimillonarios
             </h2>
-            <p className="font-body text-lg text-gj-mint-light leading-relaxed mb-6">
+            <p className="font-body text-lg text-muted-foreground leading-relaxed mb-6">
               Este plan estudia qué capacidades mentales, hábitos y marcos de decisión se repiten en personas
               que operan a gran escala. Bezos insiste en pensar a largo plazo y minimizar arrepentimientos.
               Musk destaca el razonamiento desde primeros principios. Zuckerberg subraya aprender más rápido
               que los demás.
             </p>
-            <p className="font-body text-lg text-gj-mint-light leading-relaxed">
-              La meta no es que acumules información motivacional, sino que formes criterio. Convertite en alguien
+            <p className="font-body text-lg text-muted-foreground leading-relaxed">
+              La meta no es acumular información motivacional, sino formar criterio. Convertirte en alguien
               que sabe qué hacer con grandes recursos sin perder elegancia interna, dirección ni serenidad.
             </p>
           </motion.div>
@@ -111,10 +116,10 @@ export default function Home() {
       </section>
 
       {/* Levels Preview */}
-      <section className="py-24 px-6 border-t border-gj-teal/20 bg-gj-petrol">
+      <section className="py-24 px-6 border-t border-border">
         <div className="max-w-6xl mx-auto">
           <motion.h2
-            className="font-display text-3xl sm:text-4xl font-bold text-white mb-4 text-center uppercase"
+            className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-4 text-center"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -123,7 +128,7 @@ export default function Home() {
             4 niveles de formación
           </motion.h2>
           <motion.p
-            className="font-body text-lg text-gj-mint-light text-center mb-16 max-w-2xl mx-auto"
+            className="font-body text-lg text-muted-foreground text-center mb-16 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -138,18 +143,18 @@ export default function Home() {
               return (
                 <motion.div
                   key={level.title}
-                  className="gj-card hover:border-gj-teal transition-all duration-300 group"
+                  className="glass-card rounded-xl p-6 hover:border-primary/30 transition-all duration-300 group"
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.6, delay: i * 0.1, ease: [0.23, 1, 0.32, 1] }}
                   whileHover={{ y: -4 }}
                 >
-                  <div className="w-12 h-12 bg-gj-teal/10 flex items-center justify-center mb-4 group-hover:bg-gj-teal/20 transition-colors">
-                    <Icon className="w-6 h-6 text-gj-teal" />
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                    <Icon className="w-6 h-6 text-primary" />
                   </div>
-                  <h3 className="font-display text-lg font-bold text-white mb-2 uppercase">{level.title}</h3>
-                  <p className="font-body text-sm text-gj-mint-light/70">{level.desc}</p>
+                  <h3 className="font-display text-lg font-semibold text-foreground mb-2">{level.title}</h3>
+                  <p className="font-body text-sm text-muted-foreground">{level.desc}</p>
                 </motion.div>
               );
             })}
@@ -158,18 +163,19 @@ export default function Home() {
       </section>
 
       {/* Mindset Image Section */}
-      <section className="py-24 px-6 border-t border-gj-teal/20 bg-gj-petrol-dark">
+      <section className="py-24 px-6 border-t border-border">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
-            className="border border-gj-teal/30 p-2"
           >
-            <div className="aspect-video bg-gj-petrol flex items-center justify-center">
-               <span className="text-gj-teal font-display font-bold text-2xl uppercase tracking-widest italic">Forja Mental</span>
-            </div>
+            <img
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663184209086/grkStG6TS38pKs5UQaFM6E/mindset-forge-FiFVHSnsyJXJrcMXgvm7FC.webp"
+              alt="Forja mental"
+              className="rounded-xl w-full"
+            />
           </motion.div>
           <motion.div
             initial={{ opacity: 0, x: 40 }}
@@ -177,22 +183,22 @@ export default function Home() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.23, 1, 0.32, 1] }}
           >
-            <h2 className="font-display text-3xl font-bold text-white mb-6 uppercase">
-              Forjá tu mente antes que tu patrimonio
+            <h2 className="font-display text-3xl font-bold text-foreground mb-6">
+              Forjar la mente antes que el patrimonio
             </h2>
-            <p className="font-body text-lg text-gj-mint-light leading-relaxed mb-6">
+            <p className="font-body text-lg text-muted-foreground leading-relaxed mb-6">
               El dinero no corrige la confusión; la amplifica. Por eso, antes de pensar en grandes cifras,
-              tenés que construir estructura interna, hábitos sólidos y una forma estable de decidir.
+              hay que construir estructura interna, hábitos sólidos y una forma estable de decidir.
             </p>
-            <p className="font-body text-lg text-gj-mint-light leading-relaxed mb-8">
-              Si estás preparado para sostener riqueza, no vivís reaccionando al impulso. Sabés postergar
+            <p className="font-body text-lg text-muted-foreground leading-relaxed mb-8">
+              La persona preparada para sostener riqueza no vive reaccionando al impulso. Sabe postergar
               gratificación, tolerar incertidumbre y elegir tranquilidad por encima de exhibición.
             </p>
             <Link
               href="/dashboard"
-              className="inline-flex items-center gap-2 text-gj-teal font-body font-bold uppercase tracking-widest hover:gap-3 transition-all duration-200"
+              className="inline-flex items-center gap-2 text-primary font-body font-semibold hover:gap-3 transition-all duration-200"
             >
-              Explorá el plan completo
+              Explorar el plan completo
               <ArrowRight className="w-4 h-4" />
             </Link>
           </motion.div>
@@ -200,18 +206,18 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 px-6 border-t border-gj-teal/20 bg-gj-petrol">
+      <footer className="py-12 px-6 border-t border-border">
         <div className="max-w-4xl mx-auto text-center">
           <img
-            src="/assets/logo-gj.webp"
-            alt="GJ"
-            className="h-12 w-auto mx-auto mb-4 opacity-80"
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663184209086/grkStG6TS38pKs5UQaFM6E/logo-ca-BQbxhPQwvAPpKBk6jfEkpY.webp"
+            alt="CA"
+            className="w-10 h-10 mx-auto mb-4 opacity-60"
           />
-          <p className="font-body text-sm text-gj-mint-light">
+          <p className="font-body text-sm text-muted-foreground">
             Carrera de Abundancia — Plan de formación personal
           </p>
-          <p className="font-body text-[10px] text-gj-teal/60 mt-2 uppercase tracking-widest">
-            El caos me busca. Yo lo convierto en método.
+          <p className="font-body text-xs text-muted-foreground/50 mt-2">
+            Inspirado en los marcos mentales de Bezos, Musk y Zuckerberg
           </p>
         </div>
       </footer>

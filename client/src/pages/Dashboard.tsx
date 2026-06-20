@@ -1,5 +1,6 @@
 /**
- * Dashboard: Panel general de progreso - Gumercindo Jiménez Branding
+ * Dashboard: Panel general de progreso
+ * Muestra progreso por nivel, hábitos semanales, estadísticas
  */
 import Layout from "@/components/Layout";
 import { useProgress } from "@/contexts/ProgressContext";
@@ -25,7 +26,7 @@ export default function Dashboard() {
 
   return (
     <Layout>
-      <div className="max-w-6xl mx-auto font-body">
+      <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div
           className="mb-10"
@@ -33,10 +34,10 @@ export default function Dashboard() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
         >
-          <h1 className="font-display text-3xl sm:text-4xl font-bold text-white mb-2 uppercase tracking-tight">
+          <h1 className="font-display text-3xl sm:text-4xl font-bold text-foreground mb-2">
             Panel de Entrenamiento
           </h1>
-          <p className="font-body text-gj-mint-light">
+          <p className="font-body text-muted-foreground">
             Tu progreso hacia la identidad de abundancia
           </p>
         </motion.div>
@@ -48,21 +49,21 @@ export default function Dashboard() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1, ease: [0.23, 1, 0.32, 1] }}
         >
-          <div className="gj-card p-5">
-            <p className="text-[10px] text-gj-mint/60 font-body uppercase tracking-widest mb-1">Progreso Total</p>
-            <p className="font-mono text-2xl font-bold text-gj-teal">{overallProgress}%</p>
+          <div className="glass-card rounded-xl p-5">
+            <p className="text-xs text-muted-foreground font-body uppercase tracking-wider mb-1">Progreso Total</p>
+            <p className="font-mono text-2xl font-bold text-primary">{overallProgress}%</p>
           </div>
-          <div className="gj-card p-5">
-            <p className="text-[10px] text-gj-mint/60 font-body uppercase tracking-widest mb-1">Nivel Actual</p>
-            <p className="font-mono text-2xl font-bold text-white">{progress.currentLevel}/4</p>
+          <div className="glass-card rounded-xl p-5">
+            <p className="text-xs text-muted-foreground font-body uppercase tracking-wider mb-1">Nivel Actual</p>
+            <p className="font-mono text-2xl font-bold text-foreground">{progress.currentLevel}/4</p>
           </div>
-          <div className="gj-card p-5">
-            <p className="text-[10px] text-gj-mint/60 font-body uppercase tracking-widest mb-1">Semana</p>
-            <p className="font-mono text-2xl font-bold text-white">{progress.currentWeek}/8</p>
+          <div className="glass-card rounded-xl p-5">
+            <p className="text-xs text-muted-foreground font-body uppercase tracking-wider mb-1">Semana</p>
+            <p className="font-mono text-2xl font-bold text-foreground">{progress.currentWeek}/8</p>
           </div>
-          <div className="gj-card p-5">
-            <p className="text-[10px] text-gj-mint/60 font-body uppercase tracking-widest mb-1">Puntos</p>
-            <p className="font-mono text-2xl font-bold text-gj-teal flex items-center gap-1">
+          <div className="glass-card rounded-xl p-5">
+            <p className="text-xs text-muted-foreground font-body uppercase tracking-wider mb-1">Puntos</p>
+            <p className="font-mono text-2xl font-bold text-primary flex items-center gap-1">
               <Flame className="w-5 h-5" />
               {progress.totalScore}
             </p>
@@ -77,7 +78,7 @@ export default function Dashboard() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.23, 1, 0.32, 1] }}
           >
-            <h2 className="font-display text-xl font-bold text-white mb-4 uppercase tracking-widest">Niveles de Formación</h2>
+            <h2 className="font-display text-xl font-semibold text-foreground mb-4">Niveles de Formación</h2>
             {levels.map((level, i) => {
               const Icon = levelIcons[i];
               const levelProgress = getLevelProgress(level.id);
@@ -85,38 +86,38 @@ export default function Dashboard() {
               return (
                 <Link key={level.id} href={`/nivel/${level.id}`}>
                   <div
-                    className={`gj-card p-5 transition-all duration-300 hover:border-gj-teal cursor-pointer ${
-                      isActive ? "border-gj-teal/60 bg-gj-petrol-dark/80" : ""
+                    className={`glass-card rounded-xl p-5 transition-all duration-300 hover:border-primary/30 hover:-translate-y-0.5 ${
+                      isActive ? "border-primary/40 amber-glow" : ""
                     }`}
                   >
                     <div className="flex items-start gap-4">
-                      <div className={`w-12 h-12 flex items-center justify-center shrink-0 ${
-                        isActive ? "bg-gj-teal/20" : "bg-gj-petrol"
+                      <div className={`w-12 h-12 rounded-lg flex items-center justify-center shrink-0 ${
+                        isActive ? "bg-primary/20" : "bg-secondary"
                       }`}>
-                        <Icon className={`w-6 h-6 ${isActive ? "text-gj-teal" : "text-gj-mint/40"}`} />
+                        <Icon className={`w-6 h-6 ${isActive ? "text-primary" : "text-muted-foreground"}`} />
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 mb-1">
-                          <h3 className="font-display text-lg font-bold text-white uppercase">
+                          <h3 className="font-display text-lg font-semibold text-foreground">
                             Nivel {level.id}: {level.title}
                           </h3>
                           {isActive && (
-                            <span className="text-[10px] uppercase tracking-widest font-body font-bold text-white bg-gj-teal px-2 py-0.5">
+                            <span className="text-[10px] uppercase tracking-wider font-body font-semibold text-primary bg-primary/10 px-2 py-0.5 rounded">
                               Activo
                             </span>
                           )}
                         </div>
-                        <p className="font-body text-sm text-gj-mint-light/70 mb-3 line-clamp-2">
+                        <p className="font-body text-sm text-muted-foreground mb-3 line-clamp-2">
                           {level.description}
                         </p>
                         <div className="flex items-center gap-3">
-                          <div className="flex-1 gj-progress-bar">
+                          <div className="flex-1 h-1.5 bg-secondary rounded-full overflow-hidden">
                             <div
-                              className="gj-progress-fill"
+                              className="h-full forge-progress rounded-full transition-all duration-700"
                               style={{ width: `${levelProgress}%` }}
                             />
                           </div>
-                          <span className="font-mono text-xs text-gj-teal font-bold">{levelProgress}%</span>
+                          <span className="font-mono text-xs text-muted-foreground">{levelProgress}%</span>
                         </div>
                       </div>
                     </div>
@@ -134,8 +135,8 @@ export default function Dashboard() {
             transition={{ duration: 0.6, delay: 0.3, ease: [0.23, 1, 0.32, 1] }}
           >
             {/* Daily habits */}
-            <div className="gj-card p-5">
-              <h3 className="font-display text-lg font-bold text-white mb-4 uppercase tracking-widest">Hábitos de Hoy</h3>
+            <div className="glass-card rounded-xl p-5">
+              <h3 className="font-display text-lg font-semibold text-foreground mb-4">Hábitos de Hoy</h3>
               <div className="space-y-3">
                 {habits.map((habit) => {
                   const isChecked = todayHabits?.[habit.key] || false;
@@ -143,16 +144,16 @@ export default function Dashboard() {
                     <button
                       key={habit.key}
                       onClick={() => checkHabit(today, habit.key)}
-                      className="w-full flex items-center gap-3 p-2 hover:bg-gj-teal/10 transition-colors group"
+                      className="w-full flex items-center gap-3 p-2 rounded-lg hover:bg-secondary/50 transition-colors group"
                     >
-                      <div className={`w-5 h-5 border-2 flex items-center justify-center transition-all duration-200 ${
+                      <div className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-all duration-200 ${
                         isChecked
-                          ? "bg-gj-teal border-gj-teal"
-                          : "border-gj-teal/30 group-hover:border-gj-teal/60"
+                          ? "bg-primary border-primary"
+                          : "border-muted-foreground/30 group-hover:border-primary/50"
                       }`}>
-                        {isChecked && <CheckCircle2 className="w-3 h-3 text-white" />}
+                        {isChecked && <CheckCircle2 className="w-3 h-3 text-primary-foreground" />}
                       </div>
-                      <span className={`font-body text-sm ${isChecked ? "text-white/40 line-through" : "text-gj-mint-light"}`}>
+                      <span className={`font-body text-sm ${isChecked ? "text-foreground line-through opacity-60" : "text-muted-foreground"}`}>
                         {habit.label}
                       </span>
                     </button>
@@ -162,28 +163,29 @@ export default function Dashboard() {
             </div>
 
             {/* Current week */}
-            <div className="gj-card p-5 border-l-4 border-l-gj-teal">
-              <h3 className="font-display text-lg font-bold text-white mb-3 uppercase tracking-widest">
+            <div className="glass-card rounded-xl p-5">
+              <h3 className="font-display text-lg font-semibold text-foreground mb-3">
                 Semana {progress.currentWeek}
               </h3>
               {weeklyPlan[progress.currentWeek - 1] && (
                 <>
-                  <p className="font-display text-gj-teal font-bold mb-2 uppercase text-sm">
+                  <p className="font-display text-primary font-semibold mb-2">
                     {weeklyPlan[progress.currentWeek - 1].title}
                   </p>
-                  <p className="font-body text-sm text-gj-mint-light/80 leading-relaxed">
+                  <p className="font-body text-sm text-muted-foreground leading-relaxed">
                     {weeklyPlan[progress.currentWeek - 1].focus}
                   </p>
                 </>
               )}
             </div>
 
-            {/* Quote / Method */}
-            <div className="gj-card p-5 bg-gj-teal/5">
-               <p className="text-xs text-gj-teal font-bold uppercase tracking-[0.2em] mb-2">El Método</p>
-               <p className="font-body text-sm text-white italic leading-relaxed">
-                 "No busques el éxito. Convertite en la persona que el éxito busca naturalmente."
-               </p>
+            {/* Orbital progress image */}
+            <div className="glass-card rounded-xl overflow-hidden">
+              <img
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663184209086/grkStG6TS38pKs5UQaFM6E/level-progress-Rv8RHh7Fdzpo3hkdGLDgFe.webp"
+                alt="Niveles de progreso"
+                className="w-full opacity-80"
+              />
             </div>
           </motion.div>
         </div>
